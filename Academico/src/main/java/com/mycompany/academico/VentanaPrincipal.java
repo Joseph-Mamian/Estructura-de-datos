@@ -110,27 +110,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         
         String consulta= JOptionPane.showInputDialog("Ingrese Que edades quiere consultar (menores de edad,mayores y adultos mayores)");
-        JOptionPane.showMessageDialog(rootPane, "las edades que se digitaron fueron: ");
+        
+        String espacio= " ";
+        String espacio2= " ";
+        String espacio3= " ";
+        
+        
+        
         switch (consulta){
-            case "menores" -> { 
+            case "menores de edad" -> { 
                 do{
-                    JOptionPane.showMessageDialog(rootPane, "menores de edad: " + arrayMenores[con]);
+                    espacio += arrayMenores[con] + " ";               
                     con++;
                 }while(con<5);
+                JOptionPane.showMessageDialog(rootPane, "las edades digitadas fueron: " + espacio);
             }
             
             case "mayores de edad" -> {
                 do{
-                    JOptionPane.showMessageDialog(rootPane, "mayores de edad: " + arrayMayores[con]);
+                    espacio2 += arrayMayores[con] + " ";
                     con++;
                 }while(con<5);
+                JOptionPane.showMessageDialog(rootPane, "las edades digitadas fueron: " + espacio2);
             }
             
             case "adultos mayores" ->{
                 do{
-                JOptionPane.showMessageDialog(rootPane, "Adultos mayores: " + arrayAdultoMayor[con]);
+                    espacio3 += arrayAdultoMayor[con] + " ";
                     con++;
                 }while(con<5);
+                JOptionPane.showMessageDialog(rootPane, "las edades digitadas fueron: " + espacio3);
             }
         }
     }//GEN-LAST:event_SearchActionPerformed
