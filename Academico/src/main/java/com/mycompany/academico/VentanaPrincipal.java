@@ -109,6 +109,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        do{
        int edad=Integer.parseInt( 
             JOptionPane.showInputDialog(rootPane, "Ingrese su edad"));
+       if (!ValidarNumeros (Create.getText().trim())){
+         JOptionPane.showConfirmDialog(rootPane, "Ingrese solo numeros" );
+       }
+       
        if(edad<=18 && edad>=0 && men<Tmen){
     JOptionPane.showMessageDialog(rootPane, "Usted es menor de edad");
     arrayMenores[men]=edad;
@@ -131,7 +135,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
    } while (c<15);
        
     }//GEN-LAST:event_CreateActionPerformed
-
+    public static boolean ValidarNumeros(String edad){
+    return edad.matches("[0-120]");
+    }
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
       
       
@@ -170,9 +176,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         int Tmen=Integer.parseInt( 
             JOptionPane.showInputDialog(rootPane, "Ingrese cuantos menores de edad quiere encuestar"));
         int Tmay=Integer.parseInt( 
-            JOptionPane.showInputDialog(rootPane, "Ingrese cuantos menores de edad quiere encuestar"));
+            JOptionPane.showInputDialog(rootPane, "Ingrese cuantos mayores de edad quiere encuestar"));
         int Tadul=Integer.parseInt( 
-            JOptionPane.showInputDialog(rootPane, "Ingrese cuantos menores de edad quiere encuestar"));
+            JOptionPane.showInputDialog(rootPane, "Ingrese cuantos adultos mayores quiere encuestar"));
                 
         arrayMenores=new int[Tmen];
         arrayMayores=new int[Tmay];
