@@ -63,6 +63,11 @@ public class Ventana extends javax.swing.JFrame {
 
         Analyze.setText("Analizar Informacion");
         Analyze.setEnabled(false);
+        Analyze.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnalyzeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,6 +120,11 @@ public class Ventana extends javax.swing.JFrame {
         object.consultarMenu();
         Get.setEnabled(true);
     }//GEN-LAST:event_ConsultActionPerformed
+
+    private void AnalyzeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalyzeActionPerformed
+        object.ventaTotal();
+        object.diaMasvendido();
+    }//GEN-LAST:event_AnalyzeActionPerformed
 
     /**
      * @param args the command line arguments
