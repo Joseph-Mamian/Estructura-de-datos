@@ -12,24 +12,21 @@ public class Menu {
     double promT=0;
     
     public void crearMenu(int cantidad){
-        Platos arrayObjetos[]= new Platos[cantidad];
-    Platos obj = new Platos();
+        Platos obj = new Platos();
     
         int i=0;
         while(i<cantidad){
             obj.setNombre(JOptionPane.showInputDialog("ingresa el nombre"));
             obj.setPrecio(Integer.parseInt(JOptionPane.showInputDialog("ingrese el precio")));
-            i++;
-            arrayObjetos[i]=obj;
+            i++;        
         }
         
    }
     
     public void consultarMenu(){
         
-    for(int i=0; i<arrayObjetos.length; i++){
-        
-    JOptionPane.showMessageDialog(null , "Platos: " + arrayObjetos[i]);
+    for(int i=0; i<arrayObjetos.length; i++){     
+    JOptionPane.showMessageDialog(null , "Platos: " + arrayObjetos[i].getNombre() + " Precios: " + arrayObjetos[i].getPrecio());
        }
     }
     

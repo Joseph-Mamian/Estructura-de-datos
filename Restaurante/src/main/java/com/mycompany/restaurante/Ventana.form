@@ -77,6 +77,7 @@
     <Component class="javax.swing.JButton" name="Consult">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar Menu"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultActionPerformed"/>
@@ -85,6 +86,7 @@
     <Component class="javax.swing.JButton" name="Get">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ingresar Datos"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GetActionPerformed"/>
@@ -93,6 +95,7 @@
     <Component class="javax.swing.JButton" name="Analyze">
       <Properties>
         <Property name="text" type="java.lang.String" value="Analizar Informacion"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnalyzeActionPerformed"/>

@@ -46,6 +46,7 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         Consult.setText("Consultar Menu");
+        Consult.setEnabled(false);
         Consult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultActionPerformed(evt);
@@ -53,6 +54,7 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         Get.setText("Ingresar Datos");
+        Get.setEnabled(false);
         Get.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GetActionPerformed(evt);
@@ -60,6 +62,7 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         Analyze.setText("Analizar Informacion");
+        Analyze.setEnabled(false);
         Analyze.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AnalyzeActionPerformed(evt);
