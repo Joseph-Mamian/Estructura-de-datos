@@ -7,17 +7,22 @@ public class Menu {
     String platos[];
     int datos[][];
     String[] dias= new String[]{"lunes","martes","miercoles","jueves","viernes","sabado"};
+    Platos obj[];
     Platos arrayObjetos[];
+    String nombre;
+    int precio;
+
     double sumaT=0;
     double promT=0;
     
     public void crearMenu(int cantidad){
-        Platos obj = new Platos();
+        obj= new Platos[cantidad];
     
         int i=0;
         while(i<cantidad){
-            obj.setNombre(JOptionPane.showInputDialog("ingresa el nombre"));
-            obj.setPrecio(Integer.parseInt(JOptionPane.showInputDialog("ingrese el precio")));
+            nombre=(JOptionPane.showInputDialog("ingresa el nombre"));
+            precio=(Integer.parseInt(JOptionPane.showInputDialog("ingrese el precio")));
+            obj[i]=new Platos(nombre,precio);
             i++;        
         }
         
@@ -25,25 +30,25 @@ public class Menu {
     
     public void consultarMenu(){
         
-    for(int i=0; i<arrayObjetos.length; i++){     
-    JOptionPane.showMessageDialog(null , "Platos: " + arrayObjetos[i].getNombre() + " Precios: " + arrayObjetos[i].getPrecio());
+    for(int i=0; i<obj.length; i++){     
+    JOptionPane.showMessageDialog(null , "Platos: " + obj[i].getNombre() + " Precios: " + obj[i].getPrecio());
        }
     }
     
     public void ingresarDatos(){
         
-        datos=new int[6][platos.length];
+        datos=new int[6][obj.length];
         
         for(int f=0; f<6; f++){
             int s=f+1;
-            for (int c=0; c<platos.length; c++){
-            datos[f][c]=Integer.parseInt(JOptionPane.showInputDialog("Ventas para el dia " + dias[f] + " del plato: " + platos[c]));
+            for (int c=0; c<obj.length; c++){
+            datos[f][c]=Integer.parseInt(JOptionPane.showInputDialog("Ventas para el dia " + dias[f] + " del plato: " + obj[c].getNombre()));
             }
         }
     }
     
      public void analizarInformacion(){
-        for(int f=0;f<platos.length;f++){
+        for(int f=0;f<obj.length;f++){
             int sumador = 0;
             double promedio = 0;
             int diamenos = 0;
@@ -84,7 +89,7 @@ public class Menu {
                     diamen = dias[c];
                 }
             }
-            JOptionPane.showMessageDialog(null, "venta del plato " + platos[f] + " es de " + sumador + "\nel dia que menos vendio fue " + diamen + "\nel dia que mas vendio fue " + diamas + "\nel promedio de ventas al dia es de: " + promedio);
+            JOptionPane.showMessageDialog(null, "venta del plato " + obj[f].getNombre() + " es de " + sumador + "\nel dia que menos vendio fue " + diamen + "\nel dia que mas vendio fue " + diamas + "\nel promedio de ventas al dia es de: " + promedio);
         }
         double desviacion = sumaT - (promT * platos.length);
         double coefivari = desviacion / promT;
