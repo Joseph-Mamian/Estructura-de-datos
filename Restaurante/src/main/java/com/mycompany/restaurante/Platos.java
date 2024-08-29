@@ -10,6 +10,11 @@ public class Platos {
         this.precio = precio;
     }
 
+    public Platos() {
+    }
+    
+    
+
     public String getNombre() {
         return nombre;
     }
