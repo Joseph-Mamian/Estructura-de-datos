@@ -8,7 +8,7 @@ public class Menu {
     int datos[][];
     String[] dias= new String[]{"lunes","martes","miercoles","jueves","viernes","sabado"};
     Platos obj[];
-    Platos arrayObjetos[];
+    int costo[];
     String nombre;
     int precio;
 
@@ -31,7 +31,7 @@ public class Menu {
     public void consultarMenu(){
         
     for(int i=0; i<obj.length; i++){     
-    JOptionPane.showMessageDialog(null , "Platos: " + obj[i].getNombre() + " Precios: " + obj[i].getPrecio());
+    JOptionPane.showMessageDialog(null , "Plato: \n"  + obj[i].getNombre() + "Precio: " + obj[i].getPrecio());
        }
     }
     
@@ -47,26 +47,42 @@ public class Menu {
         }
     }
     
+    public void crearCostes(){
+        
+        costo=new int[obj.length];
+        
+        for(int i=0; i<obj.length; i++){
+        costo[i]=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el coste de hacer " + obj[i].getNombre()));
+        i++;
+        }
+    
+    
+    }
+    
      public void analizarInformacion(){
         for(int f=0;f<obj.length;f++){
-            int sumador = 0;
+            int sum = 0;
             double promedio = 0;
             int diamenos = 0;
             String diamen = "";
             int diasmas = 0;
             String diamas = "";
+            String mensaje="";
+            int ganancia=0;
+            int ventaT=0;
+            int comparacion=0;
             
             for(int c = 0; c<6;c++){
                 sumaT += datos[c][f];
                 promT = sumaT/6;
-                sumador += datos[c][f];
+                sum += datos[c][f];
                 if(c==5){
-                promedio = (sumador/6);
+                promedio = (sum/6);
                 }
                 if(c==0){
                     diamen = dias[c];
-                    diamenos = sumador;
-                    diasmas = sumador;
+                    diamenos = sum;
+                    diasmas = sum;
                     diamas = dias[c];
                 }
                                 
@@ -88,12 +104,21 @@ public class Menu {
                     diamenos=datos[c][f];
                     diamen = dias[c];
                 }
-            }
-            JOptionPane.showMessageDialog(null, "venta del plato " + obj[f].getNombre() + " es de " + sumador + "\nel dia que menos vendio fue " + diamen + "\nel dia que mas vendio fue " + diamas + "\nel promedio de ventas al dia es de: " + promedio);
-        }
-        double desviacion = sumaT - (promT * platos.length);
-        double coefivari = desviacion / promT;
-        JOptionPane.showMessageDialog(null,"La cantidad de platos vendidos en la semana es de: " + sumaT + "\nel promedio de ventas al dia de todos los platos es de: " + promT + "\nsu desviacion es de: " + desviacion + "\nsu coeficiente de variacion es de: " + coefivari + "%");
+                
+                for(int i=0; i<6; i++){
+            ganancia=costo[f]*datos[c][f];
+            ventaT=obj[c].getPrecio()*datos[f][c];
+            comparacion=ventaT-ganancia;
+            
+            if(comparacion>ganancia){
+            mensaje="  Felicidades tuvo una ganancia!!!!";
+            }else{
+            mensaje="  Lastima tuvo una perdida :C";
+            }        
+           }           
+       }
+            JOptionPane.showMessageDialog(null, "venta del plato " + obj[f].getNombre() + " es de " + sum + "\nel dia que menos vendio fue " + diamen + "\nel dia que mas vendio fue " + diamas + "\nel promedio de ventas al dia es de: " + promedio + "\nEl total vendido fue: " + ventaT + "\nLA ganancia total fue: " + comparacion + "\n" + mensaje);
+        }    
     }
 }
 

@@ -33,6 +33,7 @@ public class Ventana extends javax.swing.JFrame {
         Consult = new javax.swing.JButton();
         Get = new javax.swing.JButton();
         Analyze = new javax.swing.JButton();
+        Production = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,13 +70,23 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        Production.setText("Crear Costes");
+        Production.setEnabled(false);
+        Production.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Create)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Production, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -99,7 +110,9 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(Create)
                     .addComponent(Get)
                     .addComponent(Analyze))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Production)
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,7 +126,7 @@ public class Ventana extends javax.swing.JFrame {
     private void CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateActionPerformed
        
         object.crearMenu(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de platos")));
-        Consult.setEnabled(true);
+        Production.setEnabled(true);
     }//GEN-LAST:event_CreateActionPerformed
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
@@ -124,6 +137,11 @@ public class Ventana extends javax.swing.JFrame {
     private void AnalyzeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalyzeActionPerformed
         object.analizarInformacion();
     }//GEN-LAST:event_AnalyzeActionPerformed
+
+    private void ProductionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductionActionPerformed
+        object.crearCostes();
+        Consult.setEnabled(true);
+    }//GEN-LAST:event_ProductionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +183,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton Consult;
     private javax.swing.JButton Create;
     private javax.swing.JButton Get;
+    private javax.swing.JButton Production;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
