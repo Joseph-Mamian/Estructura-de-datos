@@ -47,5 +47,9 @@ public class Nodo {
 
     public void setPromedio(float promedio) {
         this.promedio = promedio;
+<<<<<<< HEAD
     }  
+=======
+    } 
+>>>>>>> be82722278cc2ad5604e6a2a43536adca6a2ceb6
 }
